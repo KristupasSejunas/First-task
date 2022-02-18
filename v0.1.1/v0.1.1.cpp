@@ -13,7 +13,7 @@ struct data {
 	string pavarde;
 	int n = 0;
 	int egz;
-	int paz[3] = { 0 };
+	int* paz = nullptr;
 	double result = 0;
 };
 
@@ -22,9 +22,10 @@ void isvestis(data& temp);
 void antrasteVidurkis();
 void antrasteMediana();
 bool patikra();
-double Vidurkis(int* paz);
-void rikiavimas(int* paz);
-double Mediana(int* paz);
+double Vidurkis(int* paz, int k);
+void rikiavimas(int* paz, int k);
+double Mediana(int* paz, int k);
+void prideti_paz(int p, data& temp);
 
 int main()
 {	
@@ -67,11 +68,11 @@ int main()
 	{
 		if (arVM == 1)
 		{
-			i->result = Vidurkis(i->paz);
+			i->result = Vidurkis(i->paz, i->n);
 		}
 		else 
 		{
-			i->result = Mediana(i->paz);
+			i->result = Mediana(i->paz, i->n);
 		}
 
 	}
@@ -91,27 +92,33 @@ int main()
 
 void ivestis(data& temp)
 {
-	int n = 3;
 	cout << "Iveskite studento varda: ";
 	cin >> temp.vardas;
 	cout << "Iveskite studento pavarde: ";
 	cin >> temp.pavarde;
-	for (int i = 0; i < n; i++)
+
+	cout << "Iveskite namu darbu ivertinimus (Ivedus visus duomenis spauskite 0): " << std::endl;
+	int p;
+	while (true)
 	{
-		cout << "Iveskite " << i + 1 << "-a(-i) namu darbu pazymi: ";
-		cin >> temp.paz[i];
+		cin >> p;
+		if (p != 0)
+		{
+			prideti_paz(p, temp);
+		}
+		else
+			break;
 	}
+
 	cout << "Iveskite egzamino ivertinima: ";
 	cin >> temp.egz;
 }
-
 void isvestis(data& temp)
 {
 	cout << std::left << std::setw(15) << temp.pavarde <<
 		std::left << std::setw(15) << temp.vardas <<
 		std::left << std::setw(15) << std::fixed << std::setprecision(2) << 0.4 * temp.result + 0.6 * temp.egz << std::endl;
 }
-
 void antrasteVidurkis()
 {
 
@@ -127,32 +134,30 @@ void antrasteMediana()
 		std::left << std::setw(15) << "Galutinis (Med.)" << std::endl;
 	cout << "--------------------------------------------------" << std::endl;
 }
-
 bool patikra()
 {
 	int x;
 	cin >> x;
 	return x;
 }
-
-double Vidurkis(int* paz)
+double Vidurkis(int* paz, int k)
 {
 	double suma = 0;
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < k; i++)
 	{
 		suma += paz[i];
 	}
-	return suma / 3.0;
+	suma /= k * 1.0;
+	return suma;
 }
-
-void rikiavimas(int* paz)
+void rikiavimas(int* paz, int k)
 {
 	int i = 0;
 	bool ar = true;
 	while (ar)
 	{
 		ar = false;
-		for (int j = 2; j > i; j--)
+		for (int j = k-1; j > i; j--)
 		{
 			if (paz[j] <= paz[j - 1])
 			{
@@ -165,9 +170,34 @@ void rikiavimas(int* paz)
 		i++;
 	}
 }
-
-double Mediana(int* paz)
+double Mediana(int* paz, int k)
 {
-	rikiavimas(paz);
-	return paz[1];
+	rikiavimas(paz, k);
+	if (k % 2 != 0)
+	{
+		return paz[k/2];
+	}
+	else
+	{
+		double ats = paz[k / 2] + paz[k / 2 - 1];
+		return ats / 2.0;
+	}
+}
+void prideti_paz(int p, data& temp)
+{
+	temp.n++;
+	int* x = new int[temp.n];
+	for (int i = 0; i < temp.n-1; i++)
+	{
+		x[i] = temp.paz[i];
+	}
+	delete[] temp.paz;
+
+	temp.paz = new int[temp.n];
+	for (int i = 0; i < temp.n - 1; i++)
+	{
+		temp.paz[i] = x[i];
+	}
+	temp.paz[temp.n - 1] = p;
+	delete[] x;
 }
