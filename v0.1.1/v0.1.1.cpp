@@ -14,15 +14,17 @@ struct data {
 	int n = 0;
 	int egz;
 	int paz[3] = { 0 };
-	double rezult = 0;
+	double result = 0;
 };
 
 void ivestis(data& temp);
 void isvestis(data& temp);
-void antraste();
-bool studentu_patikra();
+void antrasteVidurkis();
+void antrasteMediana();
+bool patikra();
 double Vidurkis(int* paz);
-double galutinis_vidurkis(data& temp);
+void rikiavimas(int* paz);
+double Mediana(int* paz);
 
 int main()
 {	
@@ -32,7 +34,7 @@ int main()
 	while (true)
 	{
 		cout << "Jei norite ivesti studento duomenis spauskite 1, jei baigete pildyti studentu sarasa spauskite 0: ";
-		bool ar = studentu_patikra();
+		bool ar = patikra();
 		if (ar==false)
 			break;
 		else
@@ -57,7 +59,27 @@ int main()
 			delete[] temp;
 		}
 	}
-	antraste();
+
+	cout << "Jei norite galutini pazymi skaiciuoti su vidurkiu spauskite 1, jei su mediana spauskite 0: ";
+	int arVM = patikra();
+
+	for (data* i = sarasas; i < sarasas + Kiek; i++)
+	{
+		if (arVM == 1)
+		{
+			i->result = Vidurkis(i->paz);
+		}
+		else 
+		{
+			i->result = Mediana(i->paz);
+		}
+
+	}
+
+	if (arVM == 1)
+		antrasteVidurkis();
+	else
+		antrasteMediana();
 	for (int i = 0; i < Kiek; i++)
 	{
 		isvestis(sarasas[i]);
@@ -87,10 +109,10 @@ void isvestis(data& temp)
 {
 	cout << std::left << std::setw(15) << temp.pavarde <<
 		std::left << std::setw(15) << temp.vardas <<
-		std::left << std::setw(15) << std::fixed << std::setprecision(2) << galutinis_vidurkis(temp) << std::endl;
+		std::left << std::setw(15) << std::fixed << std::setprecision(2) << 0.4 * temp.result + 0.6 * temp.egz << std::endl;
 }
 
-void antraste()
+void antrasteVidurkis()
 {
 
 	cout << std::left << std::setw(15) << "Pavarde" <<
@@ -98,8 +120,15 @@ void antraste()
 		std::left << std::setw(15) << "Galutinis (Vid.)" << std::endl;
 	cout <<  "--------------------------------------------------" << std::endl;
 }
+void antrasteMediana()
+{
+	cout << std::left << std::setw(15) << "Pavarde" <<
+		std::left << std::setw(15) << "Vardas" <<
+		std::left << std::setw(15) << "Galutinis (Med.)" << std::endl;
+	cout << "--------------------------------------------------" << std::endl;
+}
 
-bool studentu_patikra()
+bool patikra()
 {
 	int x;
 	cin >> x;
@@ -116,7 +145,29 @@ double Vidurkis(int* paz)
 	return suma / 3.0;
 }
 
-double galutinis_vidurkis(data& temp)
+void rikiavimas(int* paz)
 {
-	return 0.4 * Vidurkis(temp.paz) + 0.6 * temp.egz;
+	int i = 0;
+	bool ar = true;
+	while (ar)
+	{
+		ar = false;
+		for (int j = 2; j > i; j--)
+		{
+			if (paz[j] <= paz[j - 1])
+			{
+				ar = true;
+				int temp = paz[j];
+				paz[j] = paz[j - 1];
+				paz[j - 1] = temp;
+			}
+		}
+		i++;
+	}
+}
+
+double Mediana(int* paz)
+{
+	rikiavimas(paz);
+	return paz[1];
 }
