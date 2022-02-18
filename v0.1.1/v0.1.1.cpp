@@ -21,11 +21,15 @@ void ivestis(data& temp);
 void isvestis(data& temp);
 void antrasteVidurkis();
 void antrasteMediana();
-bool patikra();
 double Vidurkis(int* paz, int k);
 void rikiavimas(int* paz, int k);
 double Mediana(int* paz, int k);
 void prideti_paz(int p, data& temp);
+
+//validacija
+bool desimtbale(int n);
+int kintamojo_tipas();
+bool vienas_nulis();
 
 int main()
 {	
@@ -35,7 +39,7 @@ int main()
 	while (true)
 	{
 		cout << "Jei norite ivesti studento duomenis spauskite 1, jei baigete pildyti studentu sarasa spauskite 0: ";
-		bool ar = patikra();
+		bool ar = vienas_nulis();
 		if (ar==false)
 			break;
 		else
@@ -62,7 +66,7 @@ int main()
 	}
 
 	cout << "Jei norite galutini pazymi skaiciuoti su vidurkiu spauskite 1, jei su mediana spauskite 0: ";
-	int arVM = patikra();
+	int arVM = vienas_nulis();
 
 	for (data* i = sarasas; i < sarasas + Kiek; i++)
 	{
@@ -101,13 +105,13 @@ void ivestis(data& temp)
 	int p;
 	while (true)
 	{
-		cin >> p;
-		if (p != 0)
+		p = kintamojo_tipas();
+		if (p == 0)
+			break;
+		else if (desimtbale(p))
 		{
 			prideti_paz(p, temp);
 		}
-		else
-			break;
 	}
 
 	cout << "Iveskite egzamino ivertinima: ";
@@ -134,12 +138,7 @@ void antrasteMediana()
 		std::left << std::setw(15) << "Galutinis (Med.)" << std::endl;
 	cout << "--------------------------------------------------" << std::endl;
 }
-bool patikra()
-{
-	int x;
-	cin >> x;
-	return x;
-}
+
 double Vidurkis(int* paz, int k)
 {
 	double suma = 0;
@@ -172,6 +171,10 @@ void rikiavimas(int* paz, int k)
 }
 double Mediana(int* paz, int k)
 {
+	if (k == 0)
+	{
+		return 0;
+	}
 	rikiavimas(paz, k);
 	if (k % 2 != 0)
 	{
@@ -200,4 +203,50 @@ void prideti_paz(int p, data& temp)
 	}
 	temp.paz[temp.n - 1] = p;
 	delete[] x;
+}
+bool desimtbale(int n)
+{
+	if (n >= 1 && n <= 10)
+	{
+		return true;
+	}
+	else
+	{
+		cout << "Skaicius turi buti nuo 1 iki 10 (imtinai)." << std::endl;
+		return false;
+	}
+}
+int kintamojo_tipas()
+{
+	int x;
+	while (true)
+	{
+		cin >> x;
+		if (!cin.good())
+		{
+			cout << "Iveskite sveikaji skaiciu." << std::endl;
+			cin.clear();
+			cin.ignore(INT_MAX, '\n'); //isvalo buffer'i
+		}
+		else
+		{
+			return x;
+		}
+	}
+}
+bool vienas_nulis()
+{
+	int x;
+	while (true)
+	{
+		x = kintamojo_tipas();
+		if (x == 0 || x == 1)
+		{
+			return x;
+		}
+		else
+		{
+			cout << "Iveskite 1 arba 0" << std::endl;
+		}
+	}
 }
