@@ -31,8 +31,14 @@ bool desimtbale(int n);
 int kintamojo_tipas();
 bool vienas_nulis();
 
+//random
+int skaicius();
+void random_paz(int k, data& temp);
+
 int main()
 {	
+	srand(time(NULL));
+
 	data* sarasas = nullptr;
 	int Kiek = 0;
 
@@ -96,26 +102,57 @@ int main()
 
 void ivestis(data& temp)
 {
+	bool pasirinkimas;		
+	int p;
 	cout << "Iveskite studento varda: ";
 	cin >> temp.vardas;
 	cout << "Iveskite studento pavarde: ";
 	cin >> temp.pavarde;
 
-	cout << "Iveskite namu darbu ivertinimus (Ivedus visus duomenis spauskite 0): " << std::endl;
-	int p;
-	while (true)
+	cout << "Jei norite namu darbu ivertinimus generuoti automatiskai spauskite 1, jei pazymius vesite ranka spauskite 0: " << std::endl;
+	pasirinkimas = vienas_nulis();
+	if (pasirinkimas)
 	{
+		cout << "Kiek ivertinimu norite sugeneruoti? " << std::endl;
 		p = kintamojo_tipas();
-		if (p == 0)
-			break;
-		else if (desimtbale(p))
+		random_paz(p, temp);
+	}
+	else
+	{
+		cout << "Iveskite namu darbu ivertinimus (Ivedus visus duomenis spauskite 0): " << std::endl;
+
+		while (true)
 		{
-			prideti_paz(p, temp);
+			p = kintamojo_tipas();
+			if (p == 0)
+				break;
+			else if (desimtbale(p))
+			{
+				prideti_paz(p, temp);
+			}
 		}
 	}
 
-	cout << "Iveskite egzamino ivertinima: ";
-	cin >> temp.egz;
+	cout << "Jei norite egzamino ivertinima generuoti automatiskai spauskite 1, jei pazymi vesite ranka spauskite 0: " << std::endl;
+	pasirinkimas = vienas_nulis();
+	if (pasirinkimas)
+	{
+		temp.egz = skaicius();
+	}
+	else
+	{
+		cout << "Iveskite egzamino ivertinima: ";
+		while (true)
+		{
+			p = kintamojo_tipas();
+			if (desimtbale(p))
+			{
+				temp.egz = p;
+				break;
+			}
+		}
+	}
+
 }
 void isvestis(data& temp)
 {
@@ -142,6 +179,8 @@ void antrasteMediana()
 double Vidurkis(int* paz, int k)
 {
 	double suma = 0;
+	if (k == 0)
+		return 0;
 	for (int i = 0; i < k; i++)
 	{
 		suma += paz[i];
@@ -248,5 +287,19 @@ bool vienas_nulis()
 		{
 			cout << "Iveskite 1 arba 0" << std::endl;
 		}
+	}
+}
+int skaicius()
+{
+	int x = rand() % 10 + 1;
+	return x;
+}
+void random_paz(int k, data& temp)
+{
+	int x;
+	for (int i = 0; i < k; i++)
+	{
+		x = skaicius();
+		prideti_paz(x, temp);
 	}
 }
