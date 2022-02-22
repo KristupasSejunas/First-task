@@ -1,7 +1,7 @@
 # First-task
 
-###v0.1
-###Programos veikimas
+### v0.1
+### Programos veikimas
 
 1. Studentų kiekis nėra fiksuotas, todėl, jeigu vartotojas nori pridėti naują studentą, jam reikia paspausti "1", jeigu pildyti baigė - "0".
 2. Pasirinkus "1" reikės įvesti naujo studento vardą ir pavardę.
@@ -15,7 +15,7 @@
 5. Vartotojas gali pasirinkti, ar galutinį pažymį programa turėtų skaičiuoti su pažymių vidurkiu (paspaudus "1"), ar su mediana (paspaudus "0").
 6. Rezultatai atspausdinami konsolėje lentelės pavidalu.
 
-###Galutinio pažymio apskaičiavimas:
+### Galutinio pažymio apskaičiavimas:
 -Su pažymių vidurkiu: 0.4 * vidurkis + 0.6 * egzamino įvertinimas.
 -Su pažymių mediana: 0.4 * pažymių mediana + 0.6 * egzamino įvertinimas.
 
