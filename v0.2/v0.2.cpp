@@ -46,6 +46,10 @@ int kiek_pazymiu(std::ifstream& in);
 void i_ekrana(vector<data> sarasas, int arVM);
 void i_faila(vector<data> sarasas, int arVM, string failas);
 
+//rusiavimas
+bool pagal_varda(data a, data b);
+bool pagal_pavarde(data a, data b);
+
 int main()
 {
 	vector<data> sarasas;
@@ -56,10 +60,16 @@ int main()
 	bool r = vienas_nulis();	
 	cout << "Jei norite galutini pazymi skaiciuoti su vidurkiu spauskite 1, jei su mediana spauskite 0: ";
 	int arVM = vienas_nulis();
+	cout << "Jei norite rusiuoti pagal varda spauskite 1, jeigu pagal pavarde spauskite 0: ";
+	bool VP = vienas_nulis();
 
 	if (r == false)
 	{
 		skaityti(duomenys, sarasas);
+		if (VP)
+			sort(sarasas.begin(), sarasas.end(), pagal_varda);
+		else
+			sort(sarasas.begin(), sarasas.end(), pagal_pavarde);
 		skaiciavimas(sarasas, arVM);
 		i_faila(sarasas, arVM, rezultatai);
 	}
@@ -78,6 +88,10 @@ int main()
 				sarasas.push_back(T);
 			}
 		}
+		if (VP)
+			sort(sarasas.begin(), sarasas.end(), pagal_varda);
+		else
+			sort(sarasas.begin(), sarasas.end(), pagal_pavarde);
 		skaiciavimas(sarasas, arVM);
 		i_ekrana(sarasas, arVM);
 	}
@@ -324,4 +338,12 @@ void skaiciavimas(vector<data>& sarasas, int arVM)
 			el.result = Mediana(el.paz);
 		}
 	}
+}
+bool pagal_varda(data a, data b)
+{
+	return a.vardas < b.vardas;
+}
+bool pagal_pavarde(data a, data b)
+{
+	return a.pavarde < b.pavarde;
 }
