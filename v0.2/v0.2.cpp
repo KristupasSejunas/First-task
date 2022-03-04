@@ -5,6 +5,8 @@
 #include <algorithm> //sort
 #include <random>
 #include <chrono>
+#include <fstream>
+#include <sstream>
 
 using std::cout;
 using std::cin;
@@ -20,11 +22,12 @@ struct data {
 };
 
 void ivestis(data& temp);
-void isvestis(data& temp);
-void antrasteVidurkis();
-void antrasteMediana();
+string isvestis(data& temp);
+string antrasteVidurkis();
+string antrasteMediana();
 double Vidurkis(vector<int> paz);
 double Mediana(vector<int> paz);
+void skaiciavimas(vector<data>& sarasas, int arVM);
 
 //validacija
 bool desimtbale(int n);
@@ -35,51 +38,50 @@ bool vienas_nulis();
 int skaicius();
 void random_paz(int k, data& temp);
 
+//darbas su failu
+void skaityti(string failas, vector<data>& sarasas);
+int kiek_pazymiu(std::ifstream& in);
+
+//spausdinimas
+void i_ekrana(vector<data> sarasas, int arVM);
+void i_faila(vector<data> sarasas, int arVM, string failas);
 
 int main()
 {
-
 	vector<data> sarasas;
+	string duomenys = "..\\studentai.txt";
+	string rezultatai = "..\\kursiokai.txt";
 
-	while (true)
-	{
-		cout << "Jei norite ivesti studento duomenis spauskite 1, jei baigete pildyti studentu sarasa spauskite 0: ";
-		bool ar = vienas_nulis();
-		if (ar == false)
-			break;
-		else
-		{
-			data T;
-			ivestis(T);
-			sarasas.push_back(T);
-		}
-	}
-
+	cout << "Jei norite duomenis rasyti ranka spauskite 1, jei skaityti is failo spauskite 0: ";
+	bool r = vienas_nulis();	
 	cout << "Jei norite galutini pazymi skaiciuoti su vidurkiu spauskite 1, jei su mediana spauskite 0: ";
 	int arVM = vienas_nulis();
 
-	for (auto& el : sarasas) //is skaidriu
+	if (r == false)
 	{
-		if (arVM == 1)
-		{
-			el.result = Vidurkis(el.paz);
-		}
-		else
-		{
-			el.result = Mediana(el.paz);
-		}
-
+		skaityti(duomenys, sarasas);
+		skaiciavimas(sarasas, arVM);
+		i_faila(sarasas, arVM, rezultatai);
 	}
-
-	if (arVM == 1)
-		antrasteVidurkis();
 	else
-		antrasteMediana();
-	for (int i = 0; i < sarasas.size(); i++)
 	{
-		isvestis(sarasas[i]);
+		while (true)
+		{
+			cout << "Jei norite ivesti studento duomenis spauskite 1, jei baigete pildyti studentu sarasa spauskite 0: ";
+			bool ar = vienas_nulis();
+			if (ar == false)
+				break;
+			else
+			{
+				data T;
+				ivestis(T);
+				sarasas.push_back(T);
+			}
+		}
+		skaiciavimas(sarasas, arVM);
+		i_ekrana(sarasas, arVM);
 	}
-
+	
 	system("pause");
 }
 void ivestis(data& temp)
@@ -136,26 +138,32 @@ void ivestis(data& temp)
 	}
 
 }
-void isvestis(data& temp)
+string isvestis(data& temp)
 {
-	cout << std::left << std::setw(15) << temp.pavarde <<
-		std::left << std::setw(15) << temp.vardas <<
-		std::left << std::setw(15) << std::fixed << std::setprecision(2) << 0.4 * temp.result + 0.6 * temp.egz << std::endl;
+	std::stringstream x;
+	double sk = 0.40 * temp.result + 0.60 * temp.egz;
+	x << std::setiosflags(std::ios_base::left) << std::setw(20) << temp.vardas <<
+		std::setiosflags(std::ios_base::left) << std::setw(20) << temp.pavarde <<
+		std::setiosflags(std::ios_base::left) << std::setw(20) << std::fixed << std::setprecision(2) << sk << std::endl;
+	return x.str();
 }
-void antrasteVidurkis()
+string antrasteVidurkis()
 {
-
-	cout << std::left << std::setw(15) << "Pavarde" <<
-		std::left << std::setw(15) << "Vardas" <<
-		std::left << std::setw(15) << "Galutinis (Vid.)" << std::endl;
-	cout << "--------------------------------------------------" << std::endl;
+	std::stringstream temp;
+	temp << std::setiosflags(std::ios_base::left) << std::setw(20) << "Vardas" <<
+		std::setiosflags(std::ios_base::left) << std::setw(20) << "Pavarde" <<
+		std::setiosflags(std::ios_base::left) << std::setw(20) << "Galutinis (Vid.)" << 
+		std::endl << "----------------------------------------------------------" << std::endl;
+	return temp.str();
 }
-void antrasteMediana()
+string antrasteMediana()
 {
-	cout << std::left << std::setw(15) << "Pavarde" <<
-		std::left << std::setw(15) << "Vardas" <<
-		std::left << std::setw(15) << "Galutinis (Med.)" << std::endl;
-	cout << "--------------------------------------------------" << std::endl;
+	std::stringstream temp;
+	temp << std::setiosflags(std::ios_base::left) << std::setw(20) << "Vardas" <<
+		std::setiosflags(std::ios_base::left) << std::setw(20) << "Pavarde" <<
+		std::setiosflags(std::ios_base::left) << std::setw(20) << "Galutinis (Med.)" <<
+		std::endl << "----------------------------------------------------------" << std::endl;
+	return temp.str();
 }
 double Vidurkis(vector<int> paz)
 {
@@ -247,5 +255,73 @@ void random_paz(int k, data& temp)
 	{
 		x = skaicius();
 		temp.paz.push_back(x);
+	}
+}
+void skaityti(string failas, std::vector<data>& sarasas)
+{
+	std::ifstream in(failas);
+	if (in)
+	{
+		int ilgis = kiek_pazymiu(in);
+		while (!in.eof())
+		{
+			int p;
+			data temp;
+			in >> temp.vardas >> temp.pavarde;
+			for (int i=0; i<ilgis; i++)
+			{
+				in >> p;
+				temp.paz.push_back(p);
+			}
+			in >> temp.egz;
+			sarasas.push_back(temp);
+		}
+	}
+	in.close();
+}
+int kiek_pazymiu(std::ifstream& in)
+{
+	int ats = 0;
+	string t;
+	while ((in.peek() != '\n') && (in >> t))
+		ats++;
+	return ats - 3;
+}
+void i_ekrana(vector<data> sarasas, int arVM) 
+{
+	if (arVM == 1)
+		cout << antrasteVidurkis();
+	else
+		cout << antrasteMediana();
+	for (int i = 0; i < sarasas.size(); i++)
+	{
+		cout << isvestis(sarasas[i]);
+	}
+}
+void i_faila(vector<data> sarasas, int arVM, string failas)
+{
+	std::ofstream out(failas);
+	if (arVM == 1)
+		out << antrasteVidurkis();
+	else
+		out << antrasteMediana();
+	for (auto& el : sarasas)
+	{
+		out << isvestis(el);
+	}
+	out.close();
+}
+void skaiciavimas(vector<data>& sarasas, int arVM)
+{
+	for (auto& el : sarasas) //is skaidriu
+	{
+		if (arVM == 1)
+		{
+			el.result = Vidurkis(el.paz);
+		}
+		else
+		{
+			el.result = Mediana(el.paz);
+		}
 	}
 }
