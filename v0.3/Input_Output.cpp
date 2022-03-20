@@ -37,7 +37,7 @@ void ivestis(data& temp)
 	pasirinkimas = vienas_nulis();
 	if (pasirinkimas)
 	{
-		temp.egz = skaicius();
+		temp.egz = skaicius(1, 10);
 	}
 	else
 	{
@@ -81,7 +81,7 @@ string antrasteMediana()
 		std::endl << "----------------------------------------------------------" << std::endl;
 	return temp.str();
 }
-void skaityti(string failas, std::vector<data>& sarasas)
+void skaityti(string failas, vector<data>& sarasas)
 {
 	try {
 		std::ifstream in(failas);

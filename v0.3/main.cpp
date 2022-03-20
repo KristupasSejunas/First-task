@@ -8,9 +8,26 @@
 int main()
 {
 	vector<data> sarasas;
+	string failo_pav="..\\";
 
 	string duomenys = "..\\studentai.txt";
 	string rezultatai = "..\\kursiokai.txt";
+
+	cout << "Jeigu norite generuoti faila spauskite 1, jei ne, spauskite 0: ";
+	bool FGen = vienas_nulis();
+	string temporary;
+	if (FGen)
+	{
+		cin.ignore();
+		cout << "Failo pavadinimas: ";
+		getline(cin, temporary);
+		temporary.empty() ? failo_pav = "..\\studentai.txt" : failo_pav += temporary + ".txt";
+		cout << "Kiek studentu generuoti: ";
+		int studSk = kintamojo_tipas();
+		cout << "Kiek namu darbu generuoti: ";
+		int ndSk = kintamojo_tipas();
+		naujas_failas(failo_pav, studSk, ndSk);
+	}
 
 	cout << "Jei norite duomenis rasyti ranka spauskite 1, jei skaityti is failo spauskite 0: ";
 	bool r = vienas_nulis();

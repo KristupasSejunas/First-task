@@ -15,5 +15,5 @@ int kiek_pazymiu(std::ifstream& in);
 void i_ekrana(vector<data> sarasas, int arVM);
 void i_faila(vector<data> sarasas, int arVM, string failas);
 
-void buffer_skaitymas(std::vector<data>& sarasas, string failas);
-void buffer_rasymas(std::vector<data>& sarasas, string failas, int arVM);
+void buffer_skaitymas(vector<data>& sarasas, string failas);
+void buffer_rasymas(vector<data>& sarasas, string failas, int arVM);
