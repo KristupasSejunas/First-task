@@ -61,7 +61,7 @@
 -Su pažymių vidurkiu: 0.4 * vidurkis + 0.6 * egzamino įvertinimas. <br>
 -Su pažymių mediana: 0.4 * pažymių mediana + 0.6 * egzamino įvertinimas. <br>
 
-### v0.3
+### v0.4
 ### Programos veikimas
 
 1. Jeigu vartotojas nori generuoti failą, jis turi spausti "1", jeigu ne -"0" <br>
