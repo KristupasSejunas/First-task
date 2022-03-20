@@ -154,6 +154,7 @@ void buffer_skaitymas(std::vector<data>& sarasas, string failas)
 		string line;
 		int p;
 
+		auto x = std::chrono::high_resolution_clock::now();
 		buffer << in.rdbuf();
 
 		in.close();
@@ -175,6 +176,8 @@ void buffer_skaitymas(std::vector<data>& sarasas, string failas)
 			temp.paz.pop_back();
 			sarasas.push_back(temp);
 		}
+		std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - x;
+		cout << "Skaitymas is failo uztruko: " << diff.count() << " s" << std::endl;
 	}
 	catch (std::exception const& e) {
 		cout << "Atidaryti failo nepavyko.";
@@ -196,9 +199,13 @@ void buffer_rasymas(std::vector<data>& sarasas, string failas, int arVM)
 	out << rezultatas.rdbuf();
 	out.close();
 }
-void string_spaudinimas(string failas, std::stringstream& tekstas)
+void string_spaudinimas(string failas, std::stringstream& tekstas, bool arVM)
 {
 	std::ofstream out(failas);
+	if (arVM == 1)
+		out << antrasteVidurkis();
+	else
+		out << antrasteMediana();
 	out << tekstas.rdbuf();
 	out.close();
 }

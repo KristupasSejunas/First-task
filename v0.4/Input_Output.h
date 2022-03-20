@@ -17,4 +17,4 @@ void i_faila(vector<data> sarasas, int arVM, string failas);
 
 void buffer_skaitymas(vector<data>& sarasas, string failas);
 void buffer_rasymas(vector<data>& sarasas, string failas, int arVM);
-void string_spaudinimas(string failas, std::stringstream& tekstas);
+void string_spaudinimas(string failas, std::stringstream& tekstas, bool arVM);

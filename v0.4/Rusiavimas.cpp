@@ -10,6 +10,7 @@ bool pagal_pavarde(data a, data b)
 }
 void studentu_skirtymas(vector<data>& sarasas, std::stringstream& pirmunai, std::stringstream& nuskriaustieji)
 {
+	auto x = std::chrono::high_resolution_clock::now();
 	for (auto& s : sarasas)
 	{
 		if (s.result < 5)
@@ -25,5 +26,7 @@ void studentu_skirtymas(vector<data>& sarasas, std::stringstream& pirmunai, std:
 				std::setiosflags(std::ios_base::left) << std::setw(20) << s.result << std::endl;
 		}
 	}
-	sarasas.clear();
+	sarasas.clear();	
+	std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - x;
+	cout << "Studentu dalinimas uztruko: " << diff.count() << " s" << std::endl;
 }

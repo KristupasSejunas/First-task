@@ -7,12 +7,17 @@
 
 int main()
 {
+	auto Start = std::chrono::high_resolution_clock::now();
 	vector<data> sarasas;
 	string failo_pav="";
 
 	cout << "Jeigu norite generuoti faila spauskite 1, jei ne, spauskite 0: ";
 	bool FGen = vienas_nulis();
 	bool r;
+	cout << "Jei norite galutini pazymi skaiciuoti su vidurkiu spauskite 1, jei su mediana spauskite 0: ";
+	int arVM = vienas_nulis();
+	cout << "Jei norite rusiuoti pagal varda spauskite 1, jeigu pagal pavarde spauskite 0: ";
+	bool VP = vienas_nulis();
 
 	if (FGen)
 	{
@@ -34,10 +39,7 @@ int main()
 		r = vienas_nulis();
 		failo_pav = "studentai.txt";
 	}
-	cout << "Jei norite galutini pazymi skaiciuoti su vidurkiu spauskite 1, jei su mediana spauskite 0: ";
-	int arVM = vienas_nulis();
-	cout << "Jei norite rusiuoti pagal varda spauskite 1, jeigu pagal pavarde spauskite 0: ";
-	bool VP = vienas_nulis();
+
 
 	if (r == false)
 	{
@@ -50,8 +52,13 @@ int main()
 		std::stringstream pirmunai;
 		std::stringstream nuskriaustieji;
 		studentu_skirtymas(sarasas, pirmunai, nuskriaustieji);
-		string_spaudinimas("pirmunai.txt", pirmunai);
-		string_spaudinimas("nuskriaustieji.txt", nuskriaustieji);
+
+		auto rus = std::chrono::high_resolution_clock::now();
+		string_spaudinimas("pirmunai.txt", pirmunai, arVM);
+		string_spaudinimas("nuskriaustieji.txt", nuskriaustieji, arVM);
+		std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - rus;
+		cout << "Spausdinimas i du failus uztruko: " << diff.count() << " s" << std::endl;
+
 	}
 	else
 	{
@@ -75,6 +82,8 @@ int main()
 		skaiciavimas(sarasas, arVM);
 		i_ekrana(sarasas, arVM);
 	}
+	std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - Start;
+	cout << "Visos programos veikimo laikas: " << diff.count() << " s" << std::endl;;
 
 	system("pause");
 }
