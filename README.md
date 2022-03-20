@@ -91,40 +91,40 @@
 
 ## 1 000 įrašų
 
-Failo generavimas uztruko: 0.0947885 s
-Skaitymas is failo uztruko: 0.0710507 s
-Studentu dalinimas uztruko: 0.0109185 s
-Spausdinimas i du failus uztruko: 0.003286 s
-Visos programos veikimo laikas: 5.89151 s
+Failo generavimas uztruko: 0.0947885 s <br>
+Skaitymas is failo uztruko: 0.0710507 s <br>
+Studentu dalinimas uztruko: 0.0109185 s <br>
+Spausdinimas i du failus uztruko: 0.003286 s <br>
+Visos programos veikimo laikas: 5.89151 s <br>
 
 ## 10 000 įrašų
 
-Failo generavimas uztruko: 0.905693 s
-Skaitymas is failo uztruko: 0.709774 s
-Studentu dalinimas uztruko: 0.0926671 s
-Spausdinimas i du failus uztruko: 0.0245089 s
-Visos programos veikimo laikas: 10.8514 s
+Failo generavimas uztruko: 0.905693 s <br>
+Skaitymas is failo uztruko: 0.709774 s <br>
+Studentu dalinimas uztruko: 0.0926671 s <br>
+Spausdinimas i du failus uztruko: 0.0245089 s <br>
+Visos programos veikimo laikas: 10.8514 s <br>
 
 ## 100 000 įrašų
 
-Failo generavimas uztruko: 9.34229 s
-Skaitymas is failo uztruko: 7.65698 s
-Studentu dalinimas uztruko: 1.05312 s
-Spausdinimas i du failus uztruko: 0.273002 s
-Visos programos veikimo laikas: 41.2394 s
+Failo generavimas uztruko: 9.34229 s <br>
+Skaitymas is failo uztruko: 7.65698 s <br>
+Studentu dalinimas uztruko: 1.05312 s <br>
+Spausdinimas i du failus uztruko: 0.273002 s <br>
+Visos programos veikimo laikas: 41.2394 s <br>
 
 ## 1 000 000 įrašų
 
-Failo generavimas uztruko: 65.3102 s
-Skaitymas is failo uztruko: 51.5129 s
-Studentu dalinimas uztruko: 8.00851 s
-Spausdinimas i du failus uztruko: 2.07919 s
-Visos programos veikimo laikas: 216.208 s
+Failo generavimas uztruko: 65.3102 s <br>
+Skaitymas is failo uztruko: 51.5129 s <br>
+Studentu dalinimas uztruko: 8.00851 s <br>
+Spausdinimas i du failus uztruko: 2.07919 s <br>
+Visos programos veikimo laikas: 216.208 s <br>
 
 ## 10 000 000 įrašų
 
-Failo generavimas uztruko:  s
-Skaitymas is failo uztruko:  s
-Studentu dalinimas uztruko:  s
-Spausdinimas i du failus uztruko:  s
-Visos programos veikimo laikas:  s
+Failo generavimas uztruko: 423.234 s <br>
+Skaitymas is failo uztruko: 397.6429 s <br>
+Studentu dalinimas uztruko: 63.724 s <br>
+Spausdinimas i du failus uztruko: 17.82202 s <br>
+Visos programos veikimo laikas: 1052.14142 s <br>
