@@ -17,11 +17,12 @@ using std::cout;
 using std::cin;
 using std::string;
 using std::vector;
+using std::endl;
 
 struct data {
 	string vardas;
 	string pavarde;
 	int egz;
 	vector<int> paz;
-	double result = 0;
+	double result = 0.0;
 };

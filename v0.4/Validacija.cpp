@@ -8,7 +8,7 @@ bool desimtbale(int n)
 	}
 	else
 	{
-		cout << "Skaicius turi buti nuo 1 iki 10 (imtinai)." << std::endl;
+		cout << "Skaicius turi buti nuo 1 iki 10 (imtinai)." << endl;
 		return false;
 	}
 }
@@ -20,7 +20,7 @@ int kintamojo_tipas()
 		cin >> x;
 		if (!cin.good())
 		{
-			cout << "Iveskite sveikaji skaiciu." << std::endl;
+			cout << "Iveskite sveikaji skaiciu." << endl;
 			cin.clear();
 			cin.ignore(INT_MAX, '\n'); //isvalo buffer'i
 		}
@@ -42,7 +42,7 @@ bool vienas_nulis()
 		}
 		else
 		{
-			cout << "Iveskite 1 arba 0" << std::endl;
+			cout << "Iveskite 1 arba 0" << endl;
 		}
 	}
 }

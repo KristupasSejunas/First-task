@@ -11,80 +11,100 @@ int main()
 	vector<data> sarasas;
 	string failo_pav="";
 
-	cout << "Jeigu norite generuoti faila spauskite 1, jei ne, spauskite 0: ";
-	bool FGen = vienas_nulis();
-	bool r;
-	cout << "Jei norite galutini pazymi skaiciuoti su vidurkiu spauskite 1, jei su mediana spauskite 0: ";
-	int arVM = vienas_nulis();
-	cout << "Jei norite rusiuoti pagal varda spauskite 1, jeigu pagal pavarde spauskite 0: ";
-	bool VP = vienas_nulis();
-
-	if (FGen)
+	bool testi = true;
+	while (testi)
 	{
-		cin.ignore();
-		cout << "Failo pavadinimas: ";
-		getline(cin, failo_pav);
-		if (failo_pav.empty())
-			failo_pav = "studentai.txt";
-		cout << "Kiek studentu generuoti: ";
-		int studSk = kintamojo_tipas();
-		cout << "Kiek namu darbu generuoti: ";
-		int ndSk = kintamojo_tipas();
-		naujas_failas(failo_pav, studSk, ndSk);
-		r = false;
-	}
-	else
-	{
-		cout << "Jei norite duomenis rasyti ranka spauskite 1, jei skaityti is failo spauskite 0: ";
-		r = vienas_nulis();
-		failo_pav = "studentai.txt";
-	}
+		cout << "Jeigu norite vykdyti programa spauskite 1, jei ne, spauskite 0: ";
+		testi = vienas_nulis();
+		if (!testi)
+			break;
+		cout << "Jeigu norite generuoti faila spauskite 1, jei ne, spauskite 0: ";
+		bool FGen = vienas_nulis();
+		bool r;
+		int arVM;
+		bool VP;
 
-
-	if (r == false)
-	{
-		buffer_skaitymas(sarasas, failo_pav);
-		if (VP)
-			sort(sarasas.begin(), sarasas.end(), pagal_varda);
-		else
-			sort(sarasas.begin(), sarasas.end(), pagal_pavarde);
-		skaiciavimas(sarasas, arVM);
-		std::stringstream pirmunai;
-		std::stringstream nuskriaustieji;
-		studentu_skirtymas(sarasas, pirmunai, nuskriaustieji);
-
-		auto rus = std::chrono::high_resolution_clock::now();
-		string_spaudinimas("pirmunai.txt", pirmunai, arVM);
-		string_spaudinimas("nuskriaustieji.txt", nuskriaustieji, arVM);
-		std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - rus;
-		cout << "Spausdinimas i du failus uztruko: " << diff.count() << " s" << std::endl;
-
-	}
-	else
-	{
-		while (true)
+		if (FGen)
 		{
-			cout << "Jei norite ivesti studento duomenis spauskite 1, jei baigete pildyti studentu sarasa spauskite 0: ";
-			bool ar = vienas_nulis();
-			if (ar == false)
-				break;
-			else
-			{
-				data T;
-				ivestis(T);
-				sarasas.push_back(T);
-			}
+			cin.ignore();
+			cout << "Failo pavadinimas: ";
+			getline(cin, failo_pav);
+			failo_pav.empty() ? failo_pav = "studentai.txt" : failo_pav += ".txt";
+			cout << "Kiek studentu generuoti: ";
+			int studSk = kintamojo_tipas();
+			cout << "Kiek namu darbu generuoti: ";
+			int ndSk = kintamojo_tipas();
+			naujas_failas(failo_pav, studSk, ndSk);
+			r = false;
 		}
-		if (VP)
-			sort(sarasas.begin(), sarasas.end(), pagal_varda);
 		else
-			sort(sarasas.begin(), sarasas.end(), pagal_pavarde);
-		skaiciavimas(sarasas, arVM);
-		i_ekrana(sarasas, arVM);
-	}
-	std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - Start;
-	cout << "Visos programos veikimo laikas: " << diff.count() << " s" << std::endl;;
+		{
+			cout << "Jei norite duomenis rasyti ranka spauskite 1, jei skaityti is failo spauskite 0: ";
+			r = vienas_nulis();
+			cin.ignore();
+			cout << "Iveskite failo pavadinima: ";
+			getline(cin, failo_pav);
+			failo_pav.empty() ? failo_pav = "studentai.txt" : failo_pav += ".txt";
+		}
 
-	system("pause");
+		if (r == false)
+		{			
+			cout << "Jei norite rusiuoti pagal varda spauskite 1, jeigu pagal pavarde spauskite 0: ";
+			VP = vienas_nulis();
+
+			cout << "Jei norite galutini pazymi skaiciuoti su vidurkiu spauskite 1, jei su mediana spauskite 0: ";
+			arVM = vienas_nulis();
+			buffer_skaitymas(sarasas, failo_pav);
+			if (VP)
+				sort(sarasas.begin(), sarasas.end(), pagal_varda);
+			else
+				sort(sarasas.begin(), sarasas.end(), pagal_pavarde);
+
+			skaiciavimas(sarasas, arVM);
+			vector<data> pirmunai;
+			vector<data> nuskriaustieji;
+			studentu_skirtymas(sarasas, pirmunai, nuskriaustieji);
+
+			auto rus = std::chrono::high_resolution_clock::now();
+			buffer_rasymas(pirmunai, "pirmunai.txt", arVM);
+			buffer_rasymas(nuskriaustieji, "nuskriaustieji.txt", arVM);
+
+			std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - rus;
+			cout << "Spausdinimas i du failus uztruko: " << diff.count() << " s" << endl;
+
+		}
+		else
+		{
+			while (true)
+			{
+				cout << "Jei norite ivesti studento duomenis spauskite 1, jei baigete pildyti studentu sarasa spauskite 0: ";
+				bool ar = vienas_nulis();
+				if (ar == false)
+					break;
+				else
+				{
+					data T;
+					ivestis(T);
+					sarasas.push_back(T);
+				}
+			}
+			cout << "Jei norite rusiuoti pagal varda spauskite 1, jeigu pagal pavarde spauskite 0: ";
+			VP = vienas_nulis();
+			cout << "Jei norite galutini pazymi skaiciuoti su vidurkiu spauskite 1, jei su mediana spauskite 0: ";
+			arVM = vienas_nulis();
+
+			if (VP)
+				sort(sarasas.begin(), sarasas.end(), pagal_varda);
+			else
+				sort(sarasas.begin(), sarasas.end(), pagal_pavarde);
+			skaiciavimas(sarasas, arVM);
+			i_ekrana(sarasas, arVM);
+		}
+		std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - Start;
+		cout << "Visos programos veikimo laikas: " << diff.count() << " s" << endl;;
+
+		system("pause");
+	}		
+
 }
 

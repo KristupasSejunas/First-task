@@ -32,7 +32,7 @@ void naujas_failas(string failo_pav, int studSk, int ndSk)
 	out << rezultatas.rdbuf();
 	out.close();	
 	std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - x;
-	cout << "Failo generavimas uztruko: " << diff.count() << " s" << std::endl;
+	cout << "Failo generavimas uztruko: " << diff.count() << " s" << endl;
 }
 string naujo_failo_antraste(int ndSk)
 {
@@ -43,7 +43,7 @@ string naujo_failo_antraste(int ndSk)
 	{
 		temp << std::setiosflags(std::ios_base::left) << "ND" << std::setw(5) << i + 1;
 	}
-	temp << std::setiosflags(std::ios_base::left) << std::setw(5) << "Egz" << std::endl;
+	temp << std::setiosflags(std::ios_base::left) << std::setw(5) << "Egz" <<endl;
 	return temp.str();
 }
 string studentas(int ndSk)
@@ -55,7 +55,7 @@ string studentas(int ndSk)
 	{
 		temp << std::setiosflags(std::ios_base::left) << std::setw(7) << skaicius(1, 10);
 	}
-	temp << std::setiosflags(std::ios_base::left) << std::setw(7) << skaicius(1, 10) << std::endl;
+	temp << std::setiosflags(std::ios_base::left) << std::setw(7) << skaicius(1, 10) << endl;
 	return temp.str();
 }
 string Vardenis()

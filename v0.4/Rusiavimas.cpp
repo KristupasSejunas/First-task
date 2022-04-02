@@ -8,25 +8,23 @@ bool pagal_pavarde(data a, data b)
 {
 	return a.pavarde < b.pavarde;
 }
-void studentu_skirtymas(vector<data>& sarasas, std::stringstream& pirmunai, std::stringstream& nuskriaustieji)
+void studentu_skirtymas(vector<data>& sarasas, vector<data>& pirmunai, vector<data>& nuskriaustieji)
 {
 	auto x = std::chrono::high_resolution_clock::now();
+	int i = 1;
 	for (auto& s : sarasas)
 	{
 		if (s.result < 5)
 		{
-			nuskriaustieji << std::setiosflags(std::ios_base::left) << std::setw(20) << s.vardas <<
-				std::setiosflags(std::ios_base::left) << std::setw(20) << s.pavarde <<
-				std::setiosflags(std::ios_base::left) << std::setw(20) << s.result << std::endl;
+			nuskriaustieji.push_back(s);
 		}
 		else
 		{
-			pirmunai << std::setiosflags(std::ios_base::left) << std::setw(20) << s.vardas <<
-				std::setiosflags(std::ios_base::left) << std::setw(20) << s.pavarde <<
-				std::setiosflags(std::ios_base::left) << std::setw(20) << s.result << std::endl;
+			pirmunai.push_back(s);
 		}
+		i++;
 	}
 	sarasas.clear();	
 	std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - x;
-	cout << "Studentu dalinimas uztruko: " << diff.count() << " s" << std::endl;
+	cout << "Studentu dalinimas uztruko: " << diff.count() << " s" << endl;
 }
