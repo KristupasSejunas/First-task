@@ -63,14 +63,16 @@
 
 ### v0.4
 ### Programos veikimas
-
-1. Jeigu vartotojas nori generuoti failą, jis turi spausti "1", jeigu ne -"0" <br>
-   * Pasirinkęs failą generuoti, vartotojas turės įvesti failo pavadinimą (su .txt pabaiga), kiek studentų nori sugeneruoti ir kiek pažymių. Daugiau nieko daryti nereikės <br>
-   * Jeigu vartotojas pasirenka naujo failo negeneruoti, programos veikimą žiūrėti 2-6 žingsniuose <br>
-2. Jeigu vartotojas nori duomenis rašyti ranka, jam reikia spausti "1", jeigu skaityti iš failo - "0". <br>
-3. Tuomet vartotojas turės pasirinkti ar galutinį rezultatą programa turi skaičiuoti pagal vidurkį (paspaudus "1"), ar medianą (paspaudus "0"). <br>
+1. Programos pradžioje vartotojas gali pasirinkti, ar nori vykdyti programą, ar baigti darbą. <br>
+   * Jeigu vartotojas pasirenka programos darbą baigti, programa išsijungia.
+   * Jeigu vartotojas pasirenka programą vykdyti, programa tęsiasi
+2. Jeigu vartotojas nori generuoti failą, jis turi spausti "1", jeigu ne -"0" <br>
+   * Pasirinkęs failą generuoti, vartotojas turės įvesti failo pavadinimą (be .txt pabaigos), kiek studentų ir kiek pažymių nori sugeneruoti. Vartotojas turės galimybę pasirinkti pagal ką rūšiuoti rezultatus (pagal vardą arba pagal pavardę) bei pagal ką skaičiuoti galutinius rezultatus (pagal vidurkį arba medianą). Vartotojui daugiau nieko daryti nebereikės. Po programos pauzės vartotojas bus grąžintas į žingsnį 1.<br>
+   * Jeigu vartotojas pasirenka naujo failo negeneruoti, programos veikimą žiūrėti 3-6 žingsniuose <br>
+3. Jeigu vartotojas nori duomenis rašyti ranka, jam reikia spausti "1", jeigu skaityti iš failo - "0". <br>
+   * Pasirinkus skaityti iš failo, vartotojas turės įrašyti failo pavadinimą (be ".txt" pabaigos). <br>
 4. Vartotojui bus duotas pasirinkimas ar galutinį studentį sąrašą rūšiuos pagal vardą (paspaudus "1"), ar pavardę (paspaudus "0"). <br>
-5. Jeigu vartotojas žingsnyje 1 pasirinko duomenis skaityti iš failo, programa automatiškai suskaičiuoja rezultatus ir atspausdina juos faile "kursiokai.txt". <br>
+5. Tuomet vartotojas turės pasirinkti ar galutinį rezultatą programa turi skaičiuoti pagal vidurkį (paspaudus "1"), ar medianą (paspaudus "0"). <br>
 6. Jeigu vartotojas žingsnyje 1 pasirinko duomenis įvesti pats:
   * Studentų kiekis nėra fiksuotas, todėl, jeigu vartotojas nori pridėti naują studentą, jam reikia paspausti "1", jeigu pildyti baigė - "0". <br>
   * Pasirinkus "1" reikės įvesti naujo studento vardą ir pavardę. <br>
@@ -82,6 +84,8 @@
     - 2 Pasirinkus "0" vartotojas gali įvesti egzamino įvertinimą 10-balėje sistemoje. <br>
   * Vartotojas galės pildyti studentų sąrašą, tol kol paspaus "0" prie "jei baigėte pildyti studentų sąrašą" pasirinkimo. <br>
   * Rezultatai atspausdinami konsolėje lentelės pavidalu. <br>
+
+# Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 
 ## Galutinio pažymio apskaičiavimas:
 -Su pažymių vidurkiu: 0.4 * vidurkis + 0.6 * egzamino įvertinimas. <br>
