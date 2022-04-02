@@ -125,3 +125,69 @@ Studentu dalinimas uztruko: 0.401258 s <br>
 Spausdinimas i du failus uztruko: 3.75345 s <br>
 Visos programos veikimo laikas: 49.8597 s <br>
 
+### v0.5
+### Programos veikimas
+
+
+
+### Programos testavimas
+
+## 1 000 įrašų
+# vector
+Skaitymas is failo uztruko: 0.0055102 s <br>
+Studentu dalinimas uztruko: 0.0002381 s <br>
+# list
+Skaitymas is failo uztruko:  s <br>
+Studentu dalinimas uztruko:  s <br>
+# deque
+Skaitymas is failo uztruko: 0.0063167 s <br>
+Studentu dalinimas uztruko: 0.0002056 s <br>
+
+## 10 000 įrašų
+
+# vector
+Skaitymas is failo uztruko: 0.0567818 s <br>
+Studentu dalinimas uztruko: 0.0030124 s <br>
+# list
+Skaitymas is failo uztruko:  s <br>
+Studentu dalinimas uztruko:  s <br>
+# deque
+Skaitymas is failo uztruko: 0.0580441 s <br>
+Studentu dalinimas uztruko: 0.0043299 s <br>
+
+## 100 000 įrašų
+
+# vector
+Skaitymas is failo uztruko: 0.765903 s <br>
+Studentu dalinimas uztruko: 0.0266564 s <br>
+# list
+Skaitymas is failo uztruko:  s <br>
+Studentu dalinimas uztruko:  s <br>
+# deque
+Skaitymas is failo uztruko: 0.649711 s <br>
+Studentu dalinimas uztruko: 0.0293761 s <br>
+
+## 1 000 000 įrašų
+
+# vector
+Skaitymas is failo uztruko: 9.3316 s <br>
+Studentu dalinimas uztruko: 0.456059 s <br>
+# list
+Skaitymas is failo uztruko:  s <br>
+Studentu dalinimas uztruko:  s <br>
+# deque
+Skaitymas is failo uztruko: 7.72957 s <br>
+Studentu dalinimas uztruko: 0.450394 s <br>
+
+## Testavimo sistemos parametrai
+# CPU:
+Base speed: 1.99 GHz <br>
+Cores: 4 <br>
+Logical processors: 8 <br>
+
+# RAM:
+Available memory during testing: 4 GB
+Speed: 2133 MHz
+
+# SDD:
+Capacity: 477 GB
