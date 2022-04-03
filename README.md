@@ -137,8 +137,8 @@ vector <br>
 Skaitymas is failo uztruko: 0.0055102 s <br>
 Studentu dalinimas uztruko: 0.0002381 s <br>
 list <br>
-Skaitymas is failo uztruko:  s <br>
-Studentu dalinimas uztruko:  s <br>
+Skaitymas is failo uztruko: 0.0052961 s <br>
+Studentu dalinimas uztruko: 0.0001948 s <br>
 deque <br>
 Skaitymas is failo uztruko: 0.0063167 s <br>
 Studentu dalinimas uztruko: 0.0002056 s <br>
@@ -149,8 +149,8 @@ vector <br>
 Skaitymas is failo uztruko: 0.0567818 s <br>
 Studentu dalinimas uztruko: 0.0030124 s <br>
 list <br>
-Skaitymas is failo uztruko:  s <br>
-Studentu dalinimas uztruko:  s <br>
+Skaitymas is failo uztruko: 0.0701308 s <br>
+Studentu dalinimas uztruko: 0.0024248 s <br>
 deque <br>
 Skaitymas is failo uztruko: 0.0580441 s <br>
 Studentu dalinimas uztruko: 0.0043299 s <br>
@@ -161,8 +161,8 @@ vector <br>
 Skaitymas is failo uztruko: 0.765903 s <br>
 Studentu dalinimas uztruko: 0.0266564 s <br>
 list <br>
-Skaitymas is failo uztruko:  s <br>
-Studentu dalinimas uztruko:  s <br>
+Skaitymas is failo uztruko: 0.585659 s <br>
+Studentu dalinimas uztruko: 0.0297429 s <br>
 deque <br>
 Skaitymas is failo uztruko: 0.649711 s <br>
 Studentu dalinimas uztruko: 0.0293761 s <br>
@@ -173,8 +173,8 @@ vector <br>
 Skaitymas is failo uztruko: 9.3316 s <br>
 Studentu dalinimas uztruko: 0.456059 s <br>
 list <br>
-Skaitymas is failo uztruko:  s <br>
-Studentu dalinimas uztruko:  s <br>
+Skaitymas is failo uztruko: 6.01325 s <br>
+Studentu dalinimas uztruko: 0.288514 s <br>
 deque <br>
 Skaitymas is failo uztruko: 7.72957 s <br>
 Studentu dalinimas uztruko: 0.450394 s <br>
