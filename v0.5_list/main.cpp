@@ -25,6 +25,7 @@ int main()
 		int arVM;
 		bool VP;
 
+
 		if (FGen)
 		{
 			cin.ignore();
@@ -55,22 +56,30 @@ int main()
 
 			cout << "Jei norite galutini pazymi skaiciuoti su vidurkiu spauskite 1, jei su mediana spauskite 0: ";
 			arVM = vienas_nulis();
-			buffer_skaitymas(sarasas, failo_pav);
+			buffer_skaitymas(sarasas, failo_pav, arVM);
 			
-			if (VP)
-				sarasas.sort(pagal_varda);
-			else
-				sarasas.sort(pagal_pavarde);
+
 
 			skaiciavimas(sarasas, arVM);
 			list<data> pirmunai;
 			list<data> nuskriaustieji;
 			studentu_skirtymas(sarasas, pirmunai, nuskriaustieji);
+			if (VP)
+			{
+				pirmunai.sort(pagal_varda);
+				nuskriaustieji.sort(pagal_varda);
+			}
+			else
+			{
+				pirmunai.sort(pagal_pavarde);
+				nuskriaustieji.sort(pagal_pavarde);
+			}
 
 			auto rus = std::chrono::high_resolution_clock::now();
 			buffer_rasymas(pirmunai, "pirmunai.txt", arVM);
 			buffer_rasymas(nuskriaustieji, "nuskriaustieji.txt", arVM);
-
+			std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - rus;
+			cout << "Studentu spausdinimas i du failus uztruko: " << diff.count() << " s" << endl;
 		}
 		else
 		{
@@ -103,7 +112,8 @@ int main()
 
 		
 		sarasas.clear();
-
+		std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - Start;
+		cout << "Visos programos veikimo laikas: " << diff.count() << " s" << endl;
 		system("pause");
 	}		
 

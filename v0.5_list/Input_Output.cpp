@@ -90,7 +90,7 @@ void i_ekrana(list<data> sarasas, int arVM)
 	for (auto& a : sarasas)
 		cout  << isvestis(a);
 }
-void buffer_skaitymas(list<data>& sarasas, string failas)
+void buffer_skaitymas(list<data>& sarasas, string failas, bool arVM)
 {
 	try {		
 		std::stringstream buffer;
@@ -107,6 +107,7 @@ void buffer_skaitymas(list<data>& sarasas, string failas)
 		in.close();
 
 		std::getline(buffer, line);
+		//vector<int> paz;
 		while (buffer)
 		{	
 			data temp;
@@ -121,7 +122,11 @@ void buffer_skaitymas(list<data>& sarasas, string failas)
 			}
 			temp.egz = temp.paz.back();
 			temp.paz.pop_back();
+			/*if (arVM)
+				temp.result = Vidurkis(paz);
+			else temp.result = Mediana(paz);*/
 			sarasas.push_back(temp);
+			//paz.clear();
 		}
 		std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - x;
 		cout << "Skaitymas is failo uztruko: " << diff.count() << " s" << endl;
@@ -146,3 +151,7 @@ void buffer_rasymas(list<data>& sarasas, string failas, int arVM)
 	out << rezultatas.rdbuf();
 	out.close();
 }
+//string vardas vienas ne keli-nepaeis tho
+//temporary data per skaityma removint
+//po galutinio pazymio radimo galima istrinti pazymius, arba nuskaito eilute ir net neissaugo o is karto funkcija susitvarko
+//result ir egz pazymys gali buti tiesiog vienas double

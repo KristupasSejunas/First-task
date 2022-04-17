@@ -37,10 +37,13 @@ void skaiciavimas(list<data>& sarasas, int arVM)
 		if (arVM == 1)
 		{
 			el.result = Vidurkis(el.paz);
+			el.paz.clear();
 		}
 		else
 		{
-			el.result = Mediana(el.paz);
+
+			el.result = Mediana(el.paz);			
+			el.paz.clear();
 		}
 	}
 }

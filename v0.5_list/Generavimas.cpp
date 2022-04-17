@@ -20,7 +20,7 @@ void random_paz(int k, data& temp)
 }
 void naujas_failas(string failo_pav, int studSk, int ndSk)
 {
-
+	auto S = std::chrono::high_resolution_clock::now();
 	std::stringstream rezultatas;
 	rezultatas << naujo_failo_antraste(ndSk);
 	for (int i = 0; i < studSk; i++)
@@ -30,7 +30,8 @@ void naujas_failas(string failo_pav, int studSk, int ndSk)
 	std::ofstream out(failo_pav);
 	out << rezultatas.rdbuf();
 	out.close();	
-
+	std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - S;
+	cout << "Naujo failo generavimas uztruko: " << diff.count() << " s" << endl;
 }
 string naujo_failo_antraste(int ndSk)
 {
