@@ -197,3 +197,14 @@ Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 |DEQUE RŪŠIAVIMAS     |   0.0002782 s   |   0.0039295 s  |  0.0465041 s  | 0.701052 s  |   5.18488 s |
 |LIST NUSKAITYMAS     |    0.004074 s   |   0.0413667 s  |   0.464237 s  |  4.35797 s  |   43.1317 s |
 |LIST RŪŠIAVIMAS      |   0.0001199 s   |   0.0013043 s  |  0.0277381 s  | 0.322404 s  |   4.86678 s |
+
+Testavimo išvados:
+1. Nors 1 testavimo strategija (nauji sąrašai užpildomi ir originalus ištrinamas tik darbui baigus) dirba greičiau, šis būdas "valgo" labai daug atminties, todėl ant mažai RAM turinčių kompiuterių programa gali neveikti.
+2. Iš visų trijų testuotų sąrašų tipų List buvo greičiausias.
+
+Programos naudojimo instrukcijos:
+1. Įsitikinkite, kad savo įrenginy turite MinGW. Jeigu jo nėra, parsisiųskite.
+2. Parsisiųskite failus iš v1.0 git repozitorijos.
+3. Naudojantis Command Prompt nueikite į direktoriją, kurioje saugomi visi failai
+4. Parašykite komandą - make
+5. Programą paleiskite įvedę komandą - ./run
