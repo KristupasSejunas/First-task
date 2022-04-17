@@ -92,38 +92,14 @@ Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 -Su pažymių mediana: 0.4 * pažymių mediana + 0.6 * egzamino įvertinimas. <br>
 
 ### Programos testavimas
+|                     |       1000      |      10000     |     100000    |   1000000   |
+| ------------------- | --------------- | -------------- | ------------- | ----------- |
+|Failo generavimas   |   0.0201344  s  |   0.196804 s  |    1.8612 s  |  19.7691 s  |
+|Skaitymas is failo    |   0.0055028  s  |   0.067059 s  |  0.679464 s  | 7.4663 s  |
+|Studentu dalinimas    |     0.0002709 s  |   0.0024898 s  |    0.0333854 s  |  0.401258 s  |
+|Spausdinimas i du failus     |    0.0037756 s  |   0.0325981 s  |   0.323798 s  |  3.75345 s  |
+|Visos programos veikimo laikas     |      9.15889 s  |   13.9517 s  |   24.4299 s  |  49.8597 s  |
 
-## 1 000 įrašų
-
-Failo generavimas uztruko: 0.0201344 s <br>
-Skaitymas is failo uztruko: 0.0055028 s <br>
-Studentu dalinimas uztruko: 0.0002709 s <br>
-Spausdinimas i du failus uztruko: 0.0037756 s <br>
-Visos programos veikimo laikas: 9.15889 s <br>
-
-## 10 000 įrašų
-
-Failo generavimas uztruko: 0.196804 s <br>
-Skaitymas is failo uztruko: 0.067059 s <br>
-Studentu dalinimas uztruko: 0.0024898 s <br>
-Spausdinimas i du failus uztruko: 0.0325981 s <br>
-Visos programos veikimo laikas: 13.9517 s <br>
-
-## 100 000 įrašų
-
-Failo generavimas uztruko: 1.8612 s <br>
-Skaitymas is failo uztruko: 0.679464 s <br>
-Studentu dalinimas uztruko: 0.0333854 s <br>
-Spausdinimas i du failus uztruko: 0.323798 s <br>
-Visos programos veikimo laikas: 24.4299 s <br>
-
-## 1 000 000 įrašų
-
-Failo generavimas uztruko: 19.7691 s <br>
-Skaitymas is failo uztruko: 7.4663 s <br>
-Studentu dalinimas uztruko: 0.401258 s <br>
-Spausdinimas i du failus uztruko: 3.75345 s <br>
-Visos programos veikimo laikas: 49.8597 s <br>
 
 ### v0.5
 ### Programos veikimas
@@ -153,65 +129,15 @@ Visa programa padalinta į tris skirtingus projektus, kuriuose skiriasi naudojam
 Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 
 ### Programos testavimas
+|                     |       1000      |      10000     |     100000    |   1000000   |   10000000  |
+| ------------------- | --------------- | -------------- | ------------- | ----------- | ----------- |
+|VECTOR NUSKAITYMAS   |   0.0055102  s  |   0.0567818 s  |    0.765903 s  |  9.3316 s  |   42.9632 s |
+|VECTOR RŪŠIAVIMAS    |   0.0002381  s  |   0.0030124 s  |  0.0266564 s  | 0.456059 s  |  2.9127  s |
+|DEQUE NUSKAITYMAS    |     0.0063167 s  |   0.0580441 s  |    0.649711 s  |  7.72957 s  |   30.4724 s |
+|DEQUE RŪŠIAVIMAS     |    0.0002056 s  |   0.0043299 s  |   0.0293761 s  |  0.450394 s  |   4.34765 s |
+|LIST NUSKAITYMAS     |      0.0052961 s  |   0.0701308 s  |   0.585659 s  |  6.01325 s  |    35.5081 s |
+|LIST RŪŠIAVIMAS      |    0.0001948 s  |  0.0024248 s  |  0.0297429 s  | 0.288514 s  |   4.58719 s |
 
-## 1 000 įrašų
-vector <br>
-Skaitymas is failo uztruko: 0.0055102 s <br>
-Studentu dalinimas uztruko: 0.0002381 s <br>
-list <br>
-Skaitymas is failo uztruko: 0.0052961 s <br>
-Studentu dalinimas uztruko: 0.0001948 s <br>
-deque <br>
-Skaitymas is failo uztruko: 0.0063167 s <br>
-Studentu dalinimas uztruko: 0.0002056 s <br>
-
-## 10 000 įrašų
-
-vector <br>
-Skaitymas is failo uztruko: 0.0567818 s <br>
-Studentu dalinimas uztruko: 0.0030124 s <br>
-list <br>
-Skaitymas is failo uztruko: 0.0701308 s <br>
-Studentu dalinimas uztruko: 0.0024248 s <br>
-deque <br>
-Skaitymas is failo uztruko: 0.0580441 s <br>
-Studentu dalinimas uztruko: 0.0043299 s <br>
-
-## 100 000 įrašų
-
-vector <br>
-Skaitymas is failo uztruko: 0.765903 s <br>
-Studentu dalinimas uztruko: 0.0266564 s <br>
-list <br>
-Skaitymas is failo uztruko: 0.585659 s <br>
-Studentu dalinimas uztruko: 0.0297429 s <br>
-deque <br>
-Skaitymas is failo uztruko: 0.649711 s <br>
-Studentu dalinimas uztruko: 0.0293761 s <br>
-
-## 1 000 000 įrašų
-
-vector <br>
-Skaitymas is failo uztruko: 9.3316 s <br>
-Studentu dalinimas uztruko: 0.456059 s <br>
-list <br>
-Skaitymas is failo uztruko: 6.01325 s <br>
-Studentu dalinimas uztruko: 0.288514 s <br>
-deque <br>
-Skaitymas is failo uztruko: 7.72957 s <br>
-Studentu dalinimas uztruko: 0.450394 s <br>
-
-## 10 000 000 įrašų
-
-vector <br>
-Skaitymas is failo uztruko: 42.9632 s <br>
-Studentu dalinimas uztruko: 2.9127 s <br>
-list <br>
-Skaitymas is failo uztruko: 35.5081 s <br>
-Studentu dalinimas uztruko: 4.58719 s <br>
-deque <br>
-Skaitymas is failo uztruko: 30.4724 s <br>
-Studentu dalinimas uztruko: 4.34765 s <br>
 
 ## Testavimo sistemos parametrai
 # CPU:
