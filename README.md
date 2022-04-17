@@ -85,7 +85,7 @@
   * Vartotojas galės pildyti studentų sąrašą, tol kol paspaus "0" prie "jei baigėte pildyti studentų sąrašą" pasirinkimo. <br>
   * Rezultatai atspausdinami konsolėje lentelės pavidalu. <br>
 
-# Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
+Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 
 ## Galutinio pažymio apskaičiavimas:
 -Su pažymių vidurkiu: 0.4 * vidurkis + 0.6 * egzamino įvertinimas. <br>
@@ -150,7 +150,7 @@ Visa programa padalinta į tris skirtingus projektus, kuriuose skiriasi naudojam
   * Vartotojas galės pildyti studentų sąrašą, tol kol paspaus "0" prie "jei baigėte pildyti studentų sąrašą" pasirinkimo. <br>
   * Rezultatai atspausdinami konsolėje lentelės pavidalu. <br>
 
-# Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
+Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 
 ### Programos testavimas
 
@@ -251,7 +251,7 @@ Visa programa padalinta į 6 skirtingus projektus, kuriuose skiriasi naudojamų 
   * Vartotojas galės pildyti studentų sąrašą, tol kol paspaus "0" prie "jei baigėte pildyti studentų sąrašą" pasirinkimo. <br>
   * Rezultatai atspausdinami konsolėje lentelės pavidalu. <br>
 
-# Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
+Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 ### Programos testavimas 1 Strategija
 |                     |       1000      |      10000     |     100000    |   1000000   |   10000000  |
 | ------------------- | --------------- | -------------- | ------------- | ----------- | ----------- |
