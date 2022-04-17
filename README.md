@@ -179,6 +179,18 @@ deque <br>
 Skaitymas is failo uztruko: 7.72957 s <br>
 Studentu dalinimas uztruko: 0.450394 s <br>
 
+## 10 000 000 įrašų
+
+vector <br>
+Skaitymas is failo uztruko: 42.9632 s <br>
+Studentu dalinimas uztruko: 2.9127 s <br>
+list <br>
+Skaitymas is failo uztruko: 35.5081 s <br>
+Studentu dalinimas uztruko: 4.58719 s <br>
+deque <br>
+Skaitymas is failo uztruko: 30.4724 s <br>
+Studentu dalinimas uztruko: 4.34765 s <br>
+
 ## Testavimo sistemos parametrai
 # CPU:
 Base speed: 1.99 GHz <br>
