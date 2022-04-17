@@ -198,7 +198,7 @@ Cores: 4 <br>
 Logical processors: 8 <br>
 
 # RAM:
-Available memory during testing: 4 GB <br>
+Available memory during testing: 8 GB <br>
 Speed: 2133 MHz
 
 # SDD:
@@ -207,8 +207,17 @@ Capacity: 477 GB
 ### v1.0
 ### Programos veikimas
 
+### Programos testavimas 1 Strategija
+|                     |       1000      |      10000     |     100000    |   1000000   |   10000000  |
+| ------------------- | --------------- | -------------- | ------------- | ----------- | ----------- |
+|VECTOR NUSKAITYMAS   |   0.0038552  s  |   0.0502662 s  |    0.56939 s  |  5.04274 s  |   41.2432 s |
+|VECTOR RŪŠIAVIMAS    |   0.0002023  s  |   0.0023215 s  |  0.0291964 s  | 0.294457 s  |  3.52889  s |
+|DEQUE NUSKAITYMAS    |     0.004017 s  |   0.0397095 s  |    0.49541 s  |  6.26876 s  |   36.5666 s |
+|DEQUE RŪŠIAVIMAS     |    0.0002318 s  |   0.0034551 s  |   0.037177 s  |  0.38594 s  |   4.59809 s |
+|LIST NUSKAITYMAS     |      0.00362 s  |   0.0426867 s  |   0.478852 s  |  5.37282 s  |    36.329 s |
+|LIST RŪŠIAVIMAS      |    0.0001805 s  |   0.0019899 s  |  0.0275246 s  | 0.245136 s  |   2.75518 s |
 
-### Programos testavimas
+### Programos testavimas 2 Strategija
 |                     |       1000      |      10000     |     100000    |   1000000   |   10000000  |
 | ------------------- | --------------- | -------------- | ------------- | ----------- | ----------- |
 |VECTOR NUSKAITYMAS   |    0.004734 s   |   0.0533563 s  |   0.714583 s  |  8.14582 s  |   46.1085 s |
