@@ -11,6 +11,7 @@
 #include <sstream>
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 
 
 using std::cout;
