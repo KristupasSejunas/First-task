@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <deque>
+#include <limits.h>
 
 
 using std::cout;
