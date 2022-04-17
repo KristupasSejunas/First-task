@@ -12,7 +12,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <list>
-
+#include <stdio.h>
+#include <limits.h>
 
 using std::cout;
 using std::cin;
