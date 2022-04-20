@@ -14,7 +14,7 @@ bool pagal_pazymi(data a, data b)
 }
 void studentu_skirtymas(vector<data>& sarasas, vector<data>& pirmunai, vector<data>& nuskriaustieji)
 {
-	sort(pirmunai.begin(), pirmunai.end(), pagal_pazymi);
+	sort(sarasas.begin(), sarasas.end(), pagal_pazymi);
 	auto x = std::chrono::high_resolution_clock::now();
 	vector<data> ::iterator it = sarasas.end();
 	it--;
