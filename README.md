@@ -131,12 +131,12 @@ Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 ### Programos testavimas
 |                     |       1000      |      10000     |     100000    |   1000000   |   10000000  |
 | ------------------- | --------------- | -------------- | ------------- | ----------- | ----------- |
-|VECTOR NUSKAITYMAS   |   0.0055102  s  |   0.0567818 s  |    0.765903 s  |  9.3316 s  |   42.9632 s |
-|VECTOR RŪŠIAVIMAS    |   0.0002381  s  |   0.0030124 s  |  0.0266564 s  | 0.456059 s  |  2.9127  s |
-|DEQUE NUSKAITYMAS    |     0.0063167 s  |   0.0580441 s  |    0.649711 s  |  7.72957 s  |   30.4724 s |
-|DEQUE RŪŠIAVIMAS     |    0.0002056 s  |   0.0043299 s  |   0.0293761 s  |  0.450394 s  |   4.34765 s |
-|LIST NUSKAITYMAS     |      0.0052961 s  |   0.0701308 s  |   0.585659 s  |  6.01325 s  |    35.5081 s |
-|LIST RŪŠIAVIMAS      |    0.0001948 s  |  0.0024248 s  |  0.0297429 s  | 0.288514 s  |   4.58719 s |
+|VECTOR NUSKAITYMAS   |   0.0058149  s  |  0.0685404  s  |    1.0420831 s  |  4.6600298 s  |  60.7761052  s |
+|VECTOR RŪŠIAVIMAS    |   0.0002596  s  |  0.0028511  s  |  0.0498445 s  | 0.3536739 s  |  4.298063  s |
+|DEQUE NUSKAITYMAS    |     0.008901 s  |   0.0652568 s  |    0.6694043 s  |  5.2898143 s  |  50.2160199  s |
+|DEQUE RŪŠIAVIMAS     |    0.0003685 s  |  0.004347  s  |  0.0547329  s  | 0.5559155  s  |  6.5036393  s |
+|LIST NUSKAITYMAS     |     0.0048573  s  |  0.0587677  s  |  0.695379  s  |  6.6623239 s  |   42.8795988  s |
+|LIST RŪŠIAVIMAS      |    0.0001512 s  |  0.0023445 s  |  0.0508827 s  |  0.6497649 s  |  5.7342644  s |
 
 
 ## Testavimo sistemos parametrai
@@ -181,22 +181,22 @@ Programa bus vykdoma tol kol, žingsnyje 1 vartotojas pasirinks darbą baigti.
 ### Programos testavimas 1 Strategija
 |                     |       1000      |      10000     |     100000    |   1000000   |   10000000  |
 | ------------------- | --------------- | -------------- | ------------- | ----------- | ----------- |
-|VECTOR NUSKAITYMAS   |   0.0038552  s  |   0.0502662 s  |    0.56939 s  |  5.04274 s  |   41.2432 s |
-|VECTOR RŪŠIAVIMAS    |   0.0002023  s  |   0.0023215 s  |  0.0291964 s  | 0.294457 s  |  3.52889  s |
-|DEQUE NUSKAITYMAS    |     0.004017 s  |   0.0397095 s  |    0.49541 s  |  6.26876 s  |   36.5666 s |
-|DEQUE RŪŠIAVIMAS     |    0.0002318 s  |   0.0034551 s  |   0.037177 s  |  0.38594 s  |   4.59809 s |
-|LIST NUSKAITYMAS     |      0.00362 s  |   0.0426867 s  |   0.478852 s  |  5.37282 s  |    36.329 s |
-|LIST RŪŠIAVIMAS      |    0.0001805 s  |   0.0019899 s  |  0.0275246 s  | 0.245136 s  |   2.75518 s |
+|VECTOR NUSKAITYMAS   |   0.0050705  s  |   0.0542667 s  |    1.1054702 s  |  5.8535487 s  |  48.2533813  s |
+|VECTOR RŪŠIAVIMAS    |    0.0005734 s  |  0.0027843  s  |  0.0645698 s  | 0.4230344 s  |   4.6411322 s |
+|DEQUE NUSKAITYMAS    |    0.0067343  s  |  0.0757928  s  |   0.6830037  s  |  5.5572856 s  |  47.6993885  s |
+|DEQUE RŪŠIAVIMAS     |   0.0003509  s  |   0.0033527 s  |   0.0564063 s  |  0.5610498 s  |   8.2776468 s |
+|LIST NUSKAITYMAS     |    0.0046577   s  |  0.065901  s  |  0.5489129  s  |  6.9026929 s  |   52.041484  s |
+|LIST RŪŠIAVIMAS      |   0.0001747  s  |   0.0024723 s  |  0.0455286 s  | 0.5807186 s  |  5.0140171  s |
 
 ### Programos testavimas 2 Strategija
 |                     |       1000      |      10000     |     100000    |   1000000   |   10000000  |
 | ------------------- | --------------- | -------------- | ------------- | ----------- | ----------- |
-|VECTOR NUSKAITYMAS   |    0.004734 s   |   0.0533563 s  |   0.714583 s  |  8.14582 s  |   46.1085 s |
-|VECTOR RŪŠIAVIMAS    |   0.0002063 s   |   0.0017726 s  |  0.0309237 s  | 0.378872 s  |   3.35199 s |
-|DEQUE NUSKAITYMAS    |   0.0049208 s   |    0.083458 s  |   0.648518 s  |  5.49003 s  |    49.246 s |
-|DEQUE RŪŠIAVIMAS     |   0.0002782 s   |   0.0039295 s  |  0.0465041 s  | 0.701052 s  |   5.18488 s |
-|LIST NUSKAITYMAS     |    0.004074 s   |   0.0413667 s  |   0.464237 s  |  4.35797 s  |   43.1317 s |
-|LIST RŪŠIAVIMAS      |   0.0001199 s   |   0.0013043 s  |  0.0277381 s  | 0.322404 s  |   4.86678 s |
+|VECTOR NUSKAITYMAS   |   0.004704  s   |  0.0451099  s  |   0.6529759 s  |  6.8203377 s  |  61.1772038  s |
+|VECTOR RŪŠIAVIMAS    |  0.0002079  s   |   0.0017861 s  |  0.0403011 s  | 0.4540384 s  |  3.437869  s |
+|DEQUE NUSKAITYMAS    |  0.008084  s   |   0.0565  s  |  0.5918791  s  | 6.7688053  s  |  53.8086819  s |
+|DEQUE RŪŠIAVIMAS     |  0.0004801  s   |   0.0033341 s  |  0.048982 s  | 0.6963034 s  |   4.9461535 s |
+|LIST NUSKAITYMAS     |   0.0047636  s   |  0.0619921  s  |   0.6905565 s  | 6.5649261  s  |   42.6511148 s |
+|LIST RŪŠIAVIMAS      |  0.0001576  s   |  0.0045202  s  | 0.0487407  s  | 0.5845098 s  |   6.6370795 s |
 
 Testavimo išvados:
 1. Nors 1 testavimo strategija (nauji sąrašai užpildomi ir originalus ištrinamas tik darbui baigus) dirba greičiau, šis būdas "valgo" labai daug atminties, todėl ant mažai RAM turinčių kompiuterių programa gali neveikti.
