@@ -1,20 +1,20 @@
-run: main.o Generavimas.o Input_Output.o Rusiavimas.o Skaiciavimas.o Validacija.o
-	g++ main.cpp Generavimas.cpp Input_Output.cpp Rusiavimas.cpp Skaiciavimas.cpp Validacija.cpp -o run
+run: main.o generavimas.o inout.o rusiavimas.o skaici.o validacija.o
+	g++ main.cpp generavimas.cpp inout.cpp rusiavimas.cpp skaic.cpp validacija.cpp -o run
 
-Generavimas.o: Generavimas.cpp
-	g++ -c Generavimas.cpp
+Generavimas.o: generavimas.cpp
+	g++ -c generavimas.cpp
 
-Input_Output.o: Input_Output.cpp
-	g++ -c Input_Output.cpp
+Input_Output.o: inout.cpp
+	g++ -c inout.cpp
 
-Rusiavimas.o: Rusiavimas.cpp
-	g++ -c Rusiavimas.cpp
+Rusiavimas.o: rusiavimas.cpp
+	g++ -c rusiavimas.cpp
 
-Skaiciavimas.o: Skaiciavimas.cpp
-	g++ -c Skaiciavimas.cpp
+Skaiciavimas.o: skaic.cpp
+	g++ -c skaic.cpp
 
-Validacija.o: Validacija.cpp
-	g++ -c Validacija.cpp
+Validacija.o: validacija.cpp
+	g++ -c validacija.cpp
 
 main.o: main.cpp
 	g++ -c main.cpp
